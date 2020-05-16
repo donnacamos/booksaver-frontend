@@ -1,14 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
+import fetchBooks from "./actions/fetchBooks";
 
 class App extends React.Component {
   componentDidMount() {
-    fetch("http://localhost:3001/api/v1/books")
-      .then((response) => response.json())
-      .then((data) => console.log(data[0]));
+    this.props.fetchBooks({
+      type: "FETCH_BOOKS",
+      payload: { title: "The Hobbit" },
+    });
   }
+
   render() {
     return <div className="App">App</div>;
   }
 }
 
-export default App;
+export default connect(null, { fetchBooks })(App);

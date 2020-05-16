@@ -4,18 +4,17 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import App from "./App";
+import bookReducer from "./reducers/bookReducer";
 
 // set up our store
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const enhancer = compose();
-
-let store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+let store = createStore(bookReducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 );
