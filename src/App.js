@@ -1,15 +1,14 @@
-import React from 'react';
-import './App.css';
+import React from "react";
 
 class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        App
-      </div>
-    );
+  componentDidMount() {
+    fetch("http://localhost:3001/api/v1/books")
+      .then((response) => response.json())
+      .then((data) => console.log(data[0]));
   }
-  
+  render() {
+    return <div className="App">App</div>;
+  }
 }
 
 export default App;
