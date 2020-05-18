@@ -1,18 +1,17 @@
 import React from "react";
-import { connect } from "react-redux";
-import fetchBooks from "./actions/fetchBooks";
+// import { connect } from "react-redux";
+import BooksContainer from "./containers/BooksContainer";
 
 class App extends React.Component {
-  componentDidMount() {
-    this.props.fetchBooks({
-      type: "FETCH_BOOKS",
-      payload: { title: "The Hobbit" },
-    });
-  }
+  componentDidMount() {}
 
   render() {
-    return <div className="App">App</div>;
+    return (
+      <div className="App">
+        <BooksContainer />
+      </div>
+    );
   }
 }
 
-export default connect(null, { fetchBooks })(App);
+export default App;

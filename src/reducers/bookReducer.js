@@ -1,3 +1,8 @@
 export default function bookReducer(state = { books: [] }, action) {
-  return action.payload;
+  switch (action.type) {
+    case "FETCH_ACCOUNTS":
+      return { books: action.payload };
+    default:
+      return state;
+  }
 }
