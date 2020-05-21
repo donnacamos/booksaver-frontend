@@ -14,7 +14,7 @@ class BooksContainer extends React.Component {
     return (
       <div>
         <BookInput />
-        <Books books={this.props.accounts} />
+        <Books books={this.props.books} />
       </div>
     );
   }
@@ -22,7 +22,7 @@ class BooksContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    books: state.books
+    books: state.books,
   };
 };
 

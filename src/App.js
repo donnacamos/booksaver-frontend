@@ -3,8 +3,6 @@ import React from "react";
 import BooksContainer from "./containers/BooksContainer";
 
 class App extends React.Component {
-  componentDidMount() {}
-
   render() {
     return (
       <div className="App">
