@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import { Route } from "react-router-dom";
 import { fetchBooks } from "../actions/fetchBooks";
 import Books from "../components/Books";
 import BookInput from "../components/BookInput";
@@ -13,8 +13,12 @@ class BooksContainer extends React.Component {
   render() {
     return (
       <div>
-        <BookInput />
-        <Books books={this.props.books} />
+        <Route path="/books/new" component={BookInput} />
+        <Route
+          exact
+          path="/books"
+          render={() => <Books books={this.props.books} />}
+        />
       </div>
     );
   }

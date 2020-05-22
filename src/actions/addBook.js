@@ -7,6 +7,8 @@ export const addBook = (data) => {
       },
       method: "POST",
       body: JSON.stringify(data),
-    });
+    })
+    .then(response => response.json())
+    .then(book => dispatch({type: "ADD_BOOK", payload: book}))
   };
 };
