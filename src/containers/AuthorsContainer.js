@@ -7,7 +7,7 @@ class AuthorsContainer extends React.Component {
     return (
       <div>
         <AuthorInput />
-        <Authors author={this.props.book.author} />
+        <Authors authors={this.props.book && this.props.book.authors} />
       </div>
     );
   }
