@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
 
@@ -11,19 +12,15 @@ const NavBar = () => {
         <Link to="/" className="item">
           Home
         </Link>
-        |
-        <Link to="/books/new" className="item">
-          Add Book
+
+        <Link to="/toys" className="item">
+          View All Toys
         </Link>
-        |
-        <Link to="/books" className="item">
-          Books
+
+        <Link to="/myStuff" className="item">
+          View My Toys
         </Link>
-        |
-        <Link to="/authors" className="item">
-          Authors
-        </Link>
-        |
+
         <Link to="/about" className="item">
           About Us
         </Link>
