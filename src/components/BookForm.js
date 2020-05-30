@@ -1,29 +1,29 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updateToyFormData } from "../actions/toyForm";
-import { createToy } from "../actions/toys";
+import { updateBookFormData } from "../actions/bookForm";
+import { createBook } from "../actions/books";
 import { Form, Icon, Divider } from "semantic-ui-react";
 
-class ToyForm extends Component {
+class BookForm extends Component {
   handleOnChange = (event) => {
     const { name, value } = event.target;
-    const currentToyFormData = Object.assign({}, this.props.toyFormData, {
+    const currentBookFormData = Object.assign({}, this.props.bookFormData, {
       [name]: value,
     });
 
-    this.props.updateToyFormData(currentToyFormData);
+    this.props.updateBookFormData(currentBookFormData);
   };
 
   handleonSubmit = (event) => {
     event.preventDefault();
-    //console.log(this.props.toyFormData)
+    //console.log(this.props.bookFormData)
 
-    const { createToy, toyFormData } = this.props;
-    createToy(toyFormData);
+    const { createBook, bookFormData } = this.props;
+    createBook(bookFormData);
   };
 
   render() {
-    const { name, description, url } = this.props.toyFormData;
+    const { title, author, description } = this.props.bookFormData;
     return (
       <div>
         <Divider />
@@ -32,11 +32,19 @@ class ToyForm extends Component {
           <Form.Group widths="equal">
             <Form.Input
               fluid
-              label="Name"
+              label="Title"
               onChange={this.handleOnChange}
-              placeholder="Name"
-              value={name}
-              name="name"
+              placeholder="Title"
+              value={title}
+              name="title"
+            />
+            <Form.Input
+              fluid
+              label="Author"
+              onChange={this.handleOnChange}
+              placeholder="Author"
+              value={author}
+              name="author"
             />
             <Form.Input
               fluid
@@ -46,23 +54,10 @@ class ToyForm extends Component {
               value={description}
               name="description"
             />
-            <Form.Input
-              fluid
-              label="URL"
-              onChange={this.handleOnChange}
-              placeholder="Image URL"
-              value={url}
-              name="url"
-            />
           </Form.Group>
 
-          <button
-            className="button button-add"
-            type="submit"
-            value="Add Toy Out"
-          >
-            <Icon name="gamepad" />
-            Add Toy
+          <button className="button button-add" type="submit" value="Add Book">
+            Add Book
           </button>
         </Form>
       </div>
@@ -72,11 +67,11 @@ class ToyForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    toyFormData: state.toyFormData,
+    bookFormData: state.bookFormData,
     //errors: state.errors
   };
 };
 
-export default connect(mapStateToProps, { updateToyFormData, createToy })(
-  ToyForm
+export default connect(mapStateToProps, { updateBookFormData, createBook })(
+  BookForm
 );

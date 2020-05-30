@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 
 import { connect } from "react-redux";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/Navbar";
 import Books from "./containers/Books";
 import BookForm from "./components/BookForm";
 import MyBooks from "./containers/MyBooks";
@@ -31,7 +31,7 @@ class App extends React.Component {
           <div className="App">
             <NavBar />
 
-            <h3>I HAD THAT!</h3>
+            <h3>Book Haven</h3>
 
             {loggedIn ? (
               <Logout />
@@ -66,4 +66,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getAllBooks })(App);
+export default connect(mapStateToProps)(App);

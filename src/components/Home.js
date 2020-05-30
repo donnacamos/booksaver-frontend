@@ -1,17 +1,21 @@
-import React from 'react'
-import { Divider } from 'semantic-ui-react'
+import React from "react";
+import { Divider } from "semantic-ui-react";
 
 const Home = () => {
-  return(
+  return (
+    <div className="Home">
+      <Divider />
 
-  <div className="Home">
-     <Divider />
-
-   <p>Remember all the cool toys you had as a kid? You can view the memorable toys you had from childhood.</p>
-   <p>Claim the toys you played from the 70s, 80s, 90s ... .</p>
-   <img src="https://blog.retroplanet.com/wp-content/uploads/2009/07/26643_a_zm.jpg" alt="Retro Toys" />
-  </div>
-)
-}
+      <h3>Welcome to Book Haven</h3>
+      <p>
+        save all your favorite books and find new books from other book lovers
+      </p>
+      <img
+        src="https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+        alt="Books"
+      />
+    </div>
+  );
+};
 
 export default Home;

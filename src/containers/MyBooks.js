@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import BookCard from "../components/BookCard";
 import { Card, Divider } from "semantic-ui-react";
 
-class MyBook extends Component {
+class MyBooks extends Component {
   render() {
     //Destructure to extract data from objects into their own variable- ex: book instead this.props.book)
     const { booksReducer } = this.props;

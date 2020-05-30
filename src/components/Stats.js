@@ -7,7 +7,6 @@ const Stats = ({ numToys, topThree }) => {
 
   return (
     <div>
-      <i className="gamepad icon total-class" />
       <strong>Total toys</strong>
       <p>{numToys} </p>
       <i className="hotjar icon hot-class" />

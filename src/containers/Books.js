@@ -39,18 +39,6 @@ class Books extends Component {
           topThree={topBooks.slice(0, 3)}
         />
         <Divider />
-
-        <Card.Group itemsPerRow={3}>
-          {/* { toysReducer.toys.map((toy, id) => <ToyCard  claimed={toy.claimed} numUsers={toy.users.length} key={id} toy={toy} />)} */}
-          {toysMatch.map((toy, id) => (
-            <ToyCard
-              claimed={toy.claimed}
-              numUsers={toy.users.length}
-              key={id}
-              toy={toy}
-            />
-          ))}
-        </Card.Group>
       </div>
     );
   }

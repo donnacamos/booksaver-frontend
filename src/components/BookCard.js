@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./Toy.css";
+import "./Book.css";
 import "../App.css";
 import { Card, Image } from "semantic-ui-react";
-import { claimToy, unclaimToy } from "../actions/toyOwnerships";
+import { claimBook, unclaimBook } from "../actions/bookOwnerships";
 import { connect } from "react-redux";
 
-class ToyCard extends Component {
+class BookCard extends Component {
   constructor(props) {
     //super calls the constructor of parent class Component
     super(props);
@@ -22,28 +22,28 @@ class ToyCard extends Component {
   };
 
   render() {
-    //Destructure to extract data from objects into their own variable- ex: toy instead this.props.toy)
-    const { toy, numUsers, claimToy, unclaimToy, toysReducer } = this.props;
+    //Destructure to extract data from objects into their own variable- ex: book instead this.props.book)
+    const { book, numUsers, claimBook, unclaimBook, booksReducer } = this.props;
 
     let buttonsVisible = (
       <div>
-        {toy.claimed !== "true" ? (
+        {book.claimed !== "true" ? (
           <div
             className="claim-button"
             onClick={() => {
-              claimToy(toy, toysReducer.currentUser);
+              claimBook(book, booksReducer.currentUser);
             }}
           >
-            <i className="plus icon plus-class" />I HAD THIS
+            <i className="plus icon plus-class" />My Book
           </div>
         ) : (
           <div
             className="unclaim-button"
             onClick={() => {
-              unclaimToy(
-                toysReducer.toyOwnerships,
-                toy,
-                toysReducer.currentUser
+              unclaimBook(
+                booksReducer.bookOwnerships,
+                book,
+                booksReducer.currentUser
               );
             }}
           >
@@ -56,13 +56,15 @@ class ToyCard extends Component {
 
     return (
       <Card>
-        <div key={toy.id}>
+        <div key={book.id}>
           <Card.Content>
-            <Image className="ToyImage" src={toy.url} alt={toy.name} />
             <Card.Header>
-              <strong>{toy.name}</strong>
+              <strong>{book.title}</strong>
             </Card.Header>
-            <Card.Description>{toy.description}</Card.Description>
+            <Card.Header>
+              <strong>{book.author}</strong>
+            </Card.Header>
+            <Card.Description>{book.description}</Card.Description>
 
             <div>
               {this.state.liked ? (
@@ -81,10 +83,10 @@ class ToyCard extends Component {
 
           <Card.Content extra>
             <i className="users icon user-class" />{" "}
-            {numUsers !== undefined ? toy.users.length : 0}
+            {numUsers !== undefined ? book.users.length : 0}
           </Card.Content>
 
-          {toysReducer.currentUser.username ? buttonsVisible : ""}
+          {booksReducer.currentUser.username ? buttonsVisible : ""}
         </div>
       </Card>
     );
@@ -93,11 +95,12 @@ class ToyCard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    toys: state.toys,
+    books: state.books,
     user: state.currentUser,
-    toyOwnerships: state.toyOwnerships,
-    toysReducer: state.toysReducer,
+    bookOwnerships: state.bookOwnerships,
+    booksReducer: state.booksReducer,
   };
 };
 
-export default connect(mapStateToProps, { claimToy, unclaimToy })(ToyCard);
+export default connect(mapStateToProps)(BookCard);
+

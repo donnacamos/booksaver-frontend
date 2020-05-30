@@ -13,12 +13,12 @@ const NavBar = () => {
           Home
         </Link>
 
-        <Link to="/toys" className="item">
-          View All Toys
+        <Link to="/books" className="item">
+          Books
         </Link>
 
-        <Link to="/myStuff" className="item">
-          View My Toys
+        <Link to="/myBooks" className="item">
+          My Books
         </Link>
 
         <Link to="/about" className="item">
