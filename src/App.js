@@ -14,7 +14,7 @@ import Login from "./components/Login";
 import Logout from "./components/Logout";
 import { getAllBooks } from "./actions/books";
 
-import { Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Divider } from "semantic-ui-react";
 import history from "./history";
 
@@ -34,16 +34,7 @@ class App extends React.Component {
 
             <h3>Book Haven</h3>
 
-            {loggedIn ? (
-              <Logout />
-            ) : (
-              <div>
-                {" "}
-                <Login />
-                <br></br>
-                <Signup />{" "}
-              </div>
-            )}
+            {loggedIn ? <Logout /> : <div> <Login /> <Signup /> </div> }
             {loggedIn ? <BookForm /> : ""}
 
             <Switch>

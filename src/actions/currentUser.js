@@ -45,11 +45,10 @@ export const login = (credentials) => {
     return fetch("http://localhost:3000/api/v1/login", {
       credentials: "include",
       method: "POST",
-      headers: {
-        "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials),
     })
-      .then((response) => response.json())
+      .then((r) => r.json())
       .then((user) => {
         if (user.error) {
           alert(user.error);
@@ -69,7 +68,7 @@ export const logout = () => {
       credentials: "include",
       method: "DELETE",
     })
-      .then((response) => response.json())
+      .then((r) => r.json())
 
       .then(() => {
         dispatch(clearLoginForm());
@@ -85,7 +84,7 @@ export const getMyBooks = (user) => {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
-      .then((response) => response.json())
+      .then((r) => r.json())
       .then((u) => {
         if (u.error) {
           alert(u.error);
@@ -114,7 +113,7 @@ export const signup = (credentials) => {
       },
       body: JSON.stringify(userInfo),
     })
-      .then((response) => response.json())
+      .then((r) => r.json())
       .then((user) => {
         if (user.errors) {
           alert(user.errors);
