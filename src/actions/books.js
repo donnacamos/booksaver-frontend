@@ -34,7 +34,7 @@ export const getAllBooks = () => {
 
     //fetch returns a promise we are waiting to resolve
     return (
-      fetch("http://localhost:3001/api/v1/books", {
+      fetch("http://localhost:3000/api/v1/books", {
         credentials: "include",
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -56,7 +56,7 @@ export const getAllBooks = () => {
 
 export const createBook = (book) => {
   return (dispatch) => {
-    return fetch("http://localhost:3001/api/v1/books", {
+    return fetch("http://localhost:3000/api/v1/books", {
       credentials: "include",
       method: "POST",
       headers: { "Content-Type": "application/json" },

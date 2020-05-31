@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateBookFormData } from "../actions/bookForm";
 import { createBook } from "../actions/books";
-import { Form, Icon, Divider } from "semantic-ui-react";
+import { Form, Divider } from "semantic-ui-react";
 
 class BookForm extends Component {
   handleOnChange = (event) => {

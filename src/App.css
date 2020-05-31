@@ -1,21 +1,25 @@
 
 .App {
     text-align: center;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Roboto Slab', serif;
   
   }
   
   h3{
     /* font-family: 'Monoton', cursive; */
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Roboto Slab', serif;
     font-style: bold;
     font-size: 40px;
-    color: #4d91d1;
+    color: #ee6de3;
   }
    
   div.ui.menu {
     background-color: white;
     font-size: 16px;
+  }
+
+  a.item {
+    color: #ee6de3;
   }
   
    
@@ -55,4 +59,8 @@
     to {
       transform: rotate(360deg);
     }
+  }
+
+  .FooterContent {
+    color: #ee40df;
   }

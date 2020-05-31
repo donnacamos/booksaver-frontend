@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import BookCard from "../components/BookCard";
-import { Card } from "semantic-ui-react";
+// import BookCard from "../components/BookCard";
+// import { Card } from "semantic-ui-react";
 import Stats from "../components/Stats";
 import { Divider } from "semantic-ui-react";
 
@@ -20,9 +20,9 @@ class Books extends Component {
     let topBooks = [...booksReducer.books].sort((a, b) =>
       a.users.length > b.users.length ? -1 : 1
     );
-    let booksMatch = booksReducer.books.filter((book) =>
-      book.title.toLowerCase().includes(this.state.newSearch.toLowerCase())
-    );
+    // let booksMatch = booksReducer.books.filter((book) =>
+    //   book.title.toLowerCase().includes(this.state.newSearch.toLowerCase())
+    // );
 
     return (
       <div className="Books">

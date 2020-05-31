@@ -12,8 +12,9 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
+import { getAllBooks } from "./actions/books";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import { Divider } from "semantic-ui-react";
 import history from "./history";
 
@@ -38,7 +39,9 @@ class App extends React.Component {
             ) : (
               <div>
                 {" "}
-                <Login /> <Signup />{" "}
+                <Login />
+                <br></br>
+                <Signup />{" "}
               </div>
             )}
             {loggedIn ? <BookForm /> : ""}
@@ -66,4 +69,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { getAllBooks })(App);

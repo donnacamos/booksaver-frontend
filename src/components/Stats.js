@@ -1,16 +1,16 @@
 import React from "react";
 
-const Stats = ({ numToys, topThree }) => {
+const Stats = ({ numBooks, topThree }) => {
   let items = topThree.map((i, key) => {
     return <div key={key}>{i.name} </div>;
   });
 
   return (
     <div>
-      <strong>Total toys</strong>
-      <p>{numToys} </p>
+      <strong>Total books</strong>
+      <p>{numBooks} </p>
       <i className="hotjar icon hot-class" />
-      <strong>Top toys</strong>
+      <strong>Top books</strong>
       {items}
     </div>
   );

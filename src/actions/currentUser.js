@@ -42,13 +42,14 @@ export const clearCurrentUser = () => {
 // Asynchronous action creators
 export const login = (credentials) => {
   return (dispatch) => {
-    return fetch("http://localhost:3001/api/v1/login", {
+    return fetch("http://localhost:3000/api/v1/login", {
       credentials: "include",
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json" },
       body: JSON.stringify(credentials),
     })
-      .then((r) => r.json())
+      .then((response) => response.json())
       .then((user) => {
         if (user.error) {
           alert(user.error);
@@ -64,11 +65,11 @@ export const login = (credentials) => {
 export const logout = () => {
   return (dispatch) => {
     dispatch(clearCurrentUser());
-    return fetch("http://localhost:3001/api/v1/logout", {
+    return fetch("http://localhost:3000/api/v1/logout", {
       credentials: "include",
       method: "DELETE",
     })
-      .then((r) => r.json())
+      .then((response) => response.json())
 
       .then(() => {
         dispatch(clearLoginForm());
@@ -79,12 +80,12 @@ export const logout = () => {
 
 export const getMyBooks = (user) => {
   return (dispatch) => {
-    return fetch(`http://localhost:3001/api/v1/users/${user.id}`, {
+    return fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
       credentials: "include",
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
-      .then((r) => r.json())
+      .then((response) => response.json())
       .then((u) => {
         if (u.error) {
           alert(u.error);
@@ -105,7 +106,7 @@ export const signup = (credentials) => {
     };
     console.log("userInfo", userInfo);
 
-    return fetch("http://localhost:3001/api/v1/signup", {
+    return fetch("http://localhost:3000/api/v1/signup", {
       credentials: "include",
       method: "POST",
       headers: {
@@ -113,7 +114,7 @@ export const signup = (credentials) => {
       },
       body: JSON.stringify(userInfo),
     })
-      .then((r) => r.json())
+      .then((response) => response.json())
       .then((user) => {
         if (user.errors) {
           alert(user.errors);

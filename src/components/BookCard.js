@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Book.css";
 import "../App.css";
-import { Card, Image } from "semantic-ui-react";
-import { claimBook, unclaimBook } from "../actions/bookOwnerships";
+import { Card } from "semantic-ui-react";
+// import { claimBook, unclaimBook } from "../actions/bookOwnerships";
 import { connect } from "react-redux";
 
 class BookCard extends Component {
@@ -34,7 +34,8 @@ class BookCard extends Component {
               claimBook(book, booksReducer.currentUser);
             }}
           >
-            <i className="plus icon plus-class" />My Book
+            <i className="plus icon plus-class" />
+            My Book
           </div>
         ) : (
           <div
@@ -103,4 +104,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(BookCard);
-

@@ -32,12 +32,14 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
       <form onSubmit={handleSubmit}>
         <div className="ui input">
           <input
-            placeholder="user name"
+            placeholder="username"
             value={loginFormData.username}
             name="username"
             type="text"
             onChange={handleInputChange}
           />
+          <br></br>
+          <br></br>
           <input
             placeholder="password"
             value={loginFormData.password}

@@ -12,18 +12,19 @@ const NavBar = () => {
         <Link to="/" className="item">
           Home
         </Link>
-
+        |
         <Link to="/books" className="item">
           Books
         </Link>
-
+        |
         <Link to="/myBooks" className="item">
           My Books
         </Link>
-
+        |
         <Link to="/about" className="item">
           About Us
         </Link>
+        |
       </Menu>
     </div>
   );
