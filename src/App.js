@@ -28,13 +28,20 @@ class App extends React.Component {
 
     return (
       <div>
-        <Router history={history}>
+        <Router>
           <div className="App">
             <NavBar />
 
             <h3>Book Haven</h3>
 
-            {loggedIn ? <Logout /> : <div> <Login /> <Signup /> </div> }
+            {loggedIn ? (
+              <Logout />
+            ) : (
+              <div>
+                {" "}
+                <Login /> <br></br> <Signup />{" "}
+              </div>
+            )}
             {loggedIn ? <BookForm /> : ""}
 
             <Switch>

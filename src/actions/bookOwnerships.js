@@ -31,7 +31,10 @@ export const getBookOwnerships = () => {
     return fetch(`http://localhost:3000/api/v1/book_ownerships/`, {
       credentials: "include",
       method: "GET",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
     })
       .then((r) => r.json())
       .then((book_ownerships) => {
@@ -56,7 +59,10 @@ export const claimBook = (book, user) => {
     return fetch(`http://localhost:3000/api/v1/book_ownerships/`, {
       credentials: "include",
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify(newData),
     })
       .then((r) => r.json())
@@ -78,7 +84,10 @@ export const unclaimBook = (to, book, user) => {
       {
         credentials: "include",
         method: "DELETE",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
       }
     )
       .then((r) => r.text())

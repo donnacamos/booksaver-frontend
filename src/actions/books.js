@@ -37,7 +37,10 @@ export const getAllBooks = () => {
       fetch("http://localhost:3000/api/v1/books", {
         credentials: "include",
         method: "GET",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
       })
         //when resolved, parse response data to JSON
         .then((r) => r.json())
@@ -59,7 +62,10 @@ export const createBook = (book) => {
     return fetch("http://localhost:3000/api/v1/books", {
       credentials: "include",
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify(book),
     })
       .then((r) => r.json())

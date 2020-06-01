@@ -42,13 +42,16 @@ export const clearCurrentUser = () => {
 // Asynchronous action creators
 export const login = (credentials) => {
   return (dispatch) => {
-    return fetch("http://localhost:3000/api/v1/login", {
+    return fetch(`http://localhost:3000/api/v1/login`, {
       credentials: "include",
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify(credentials),
     })
-      .then((r) => r.json())
+      .then((response) => response.json())
       .then((user) => {
         if (user.error) {
           alert(user.error);
@@ -64,7 +67,7 @@ export const login = (credentials) => {
 export const logout = () => {
   return (dispatch) => {
     dispatch(clearCurrentUser());
-    return fetch("http://localhost:3000/api/v1/logout", {
+    return fetch(`http://localhost:3000/api/v1/logout`, {
       credentials: "include",
       method: "DELETE",
     })
@@ -82,7 +85,10 @@ export const getMyBooks = (user) => {
     return fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
       credentials: "include",
       method: "GET",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
     })
       .then((r) => r.json())
       .then((u) => {
@@ -105,11 +111,12 @@ export const signup = (credentials) => {
     };
     console.log("userInfo", userInfo);
 
-    return fetch("http://localhost:3000/api/v1/signup", {
+    return fetch(`http://localhost:3000/api/v1/signup`, {
       credentials: "include",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify(userInfo),
     })
