@@ -1,70 +1,59 @@
+// React + Dependencies
 import React from "react";
 import { connect } from "react-redux";
+
+// Import from Files
 import { updateLoginForm } from "../actions/loginForm";
 import { login } from "../actions/currentUser";
-import { Divider, Icon } from "semantic-ui-react";
 
-const Login = ({ loginFormData, updateLoginForm, login }) => {
+// functional / stateless component
+const Login = ({ loginFormData, updateLoginForm, login, history }) => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-
-    //create updatedLoginFormInfo object from loginForm state
-    const updatedLoginFormInfo = {
+    const updatedFormInfo = {
       ...loginFormData,
       [name]: value,
     };
-
-    // pass updatedLoginFormInfo object to action creator
-    updateLoginForm(updatedLoginFormInfo);
+    updateLoginForm(updatedFormInfo);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    //call asynch action creator and pass loginFormData as credentials
-    login(loginFormData);
+    login(loginFormData, history);
   };
 
+  // Login Form
   return (
-    <div>
-      <Divider />
+    <form class="ui form" onSubmit={handleSubmit}>
+      <h2>Log In</h2>
+      <input
+        placeholder="email"
+        value={loginFormData.email}
+        type="text"
+        name="email"
+        onChange={handleInputChange}
+      />
+      <div class="ui pointing label">Sample email: thor@asgard.net</div>
+      <br />
+      <br />
+      <input
+        placeholder="password"
+        value={loginFormData.password}
+        type="password"
+        name="password"
+        onChange={handleInputChange}
+      />
+      <div class="ui pointing label">Sample password: 1234</div>
+      <br />
+      <br />
 
-      <form onSubmit={handleSubmit}>
-        <div className="ui input">
-          <input
-            placeholder="username"
-            value={loginFormData.username}
-            name="username"
-            type="text"
-            onChange={handleInputChange}
-          />
-          <br></br>
-          <br></br>
-          <input
-            placeholder="password"
-            value={loginFormData.password}
-            name="password"
-            type="text"
-            onChange={handleInputChange}
-          />
-          <br />
-          <br />
-          <button className="button button-login" type="submit" value="Log In">
-            {" "}
-            <Icon name="sign in" /> Log in{" "}
-          </button>
-        </div>
-      </form>
-    </div>
+      <input class="ui button" value="Log In" type="submit" />
+    </form>
   );
 };
 
-//loginForm state has user credentials
-//{
-//     username: "xxx",
-//     password: "password"
-// }
-
+// Reading states from Redux store
+// we can now use these as props
 const mapStateToProps = (state) => {
   return {
     loginFormData: state.loginForm,

@@ -1,77 +1,83 @@
-import React, { Component } from "react";
+// React + Dependencies
+import React from "react";
 import { connect } from "react-redux";
-import { updateBookFormData } from "../actions/bookForm";
-import { createBook } from "../actions/books";
-import { Form, Divider } from "semantic-ui-react";
 
-class BookForm extends Component {
-  handleOnChange = (event) => {
+// Import from Files
+import { updateBookForm } from "../actions/bookForm";
+
+// functional / stateless component
+const BookForm = ({
+  formData,
+  updateBookForm,
+  userId,
+  book,
+  handleSubmit,
+  editMode,
+}) => {
+  const { title, author, description } = formData;
+
+  const handleChange = (event) => {
     const { name, value } = event.target;
-    const currentBookFormData = Object.assign({}, this.props.bookFormData, {
-      [name]: value,
-    });
-
-    this.props.updateBookFormData(currentBookFormData);
+    updateListForm(name, value);
   };
 
-  handleonSubmit = (event) => {
-    event.preventDefault();
-    //console.log(this.props.bookFormData)
+  return (
+    <div>
+      <form
+        class="ui form"
+        onSubmit={(event) => {
+          event.preventDefault();
+          handleSubmit(formData, userId);
+        }}
+      >
+        <h2>{editMode ? "Edit Your Book" : "Create a Book"}</h2>
+        <label class="ui label">Title</label>
+        <input
+          type="text"
+          placeholder="Title"
+          name="title"
+          value={title}
+          onChange={handleChange}
+        />
+        <br />
+        <br />
 
-    const { createBook, bookFormData } = this.props;
-    createBook(bookFormData);
-  };
+        <label class="ui label">Author</label>
+        <input
+          type="text"
+          name="author"
+          value={author}
+          onChange={handleChange}
+        />
+        <br />
+        <br />
 
-  render() {
-    const { title, author, description } = this.props.bookFormData;
-    return (
-      <div>
-        <Divider />
+        <label class="ui label">Description</label>
+        <textarea
+          type="text"
+          name="description"
+          value={description}
+          onChange={handleChange}
+        />
+        <br />
+        <br />
 
-        <Form onSubmit={this.handleonSubmit}>
-          <Form.Group widths="equal">
-            <Form.Input
-              fluid
-              label="Title"
-              onChange={this.handleOnChange}
-              placeholder="Title"
-              value={title}
-              name="title"
-            />
-            <Form.Input
-              fluid
-              label="Author"
-              onChange={this.handleOnChange}
-              placeholder="Author"
-              value={author}
-              name="author"
-            />
-            <Form.Input
-              fluid
-              label="Description"
-              onChange={this.handleOnChange}
-              placeholder="Description"
-              value={description}
-              name="description"
-            />
-          </Form.Group>
-
-          <button className="button button-add" type="submit" value="Add Book">
-            Add Book
-          </button>
-        </Form>
-      </div>
-    );
-  }
-}
+        <input
+          class="ui button"
+          type="submit"
+          value={editMode ? "Edit Book" : "Create Book"}
+        />
+      </form>
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => {
+  const userId = state.currentUser ? state.currentUser.id : "";
   return {
-    bookFormData: state.bookFormData,
-    //errors: state.errors
+    formData: state.bookForm,
+    userId,
   };
 };
 
-export default connect(mapStateToProps, { updateBookFormData, createBook })(
-  BookForm
-);
+export default connect(mapStateToProps, { updateBookForm })(BookForm);

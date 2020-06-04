@@ -1,33 +1,42 @@
+// React + Dependencies
 import React from "react";
+import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 
-import { Link } from "react-router-dom";
-import { Menu } from "semantic-ui-react";
+// Import from Files
+import Logout from "./Logout";
 
-import "../App.css";
-
-const NavBar = () => {
+// functional / stateless component
+const NavBar = ({ currentUser, loggedIn }) => {
   return (
-    <div className="nav">
-      <Menu>
-        <Link to="/" className="item">
-          Home
-        </Link>
-        |
-        <Link to="/books" className="item">
-          Books
-        </Link>
-        |
-        <Link to="/myBooks" className="item">
-          My Books
-        </Link>
-        |
-        <Link to="/about" className="item">
-          About Us
-        </Link>
-        |
-      </Menu>
+    <div className="NavBar">
+      <div class="ui secondary menu">
+        <NavLink to="/lists" class="item">
+          <i class="home big icon"></i>
+        </NavLink>
+        <NavLink to="/lists/new" class="item">
+          <button class="ui positive button">Create a New List</button>
+        </NavLink>
+        <div class="right menu">
+          {loggedIn ? (
+            <>
+              <span class="item" id="loggedin">
+                Logged in as {currentUser.name}
+              </span>
+              <Logout />
+            </>
+          ) : null}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default NavBar;
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser,
+    loggedIn: !!currentUser,
+  };
+};
+
+export default connect(mapStateToProps)(NavBar);
