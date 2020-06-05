@@ -7,7 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import MyBooks from "../components/MyBooks";
 import BookCard from "../components/BookCard";
-import NewBookFormWrapper from "../components/NewBookFormWrapper";
+import NewBooksFormWrapper from "../components/NewBooksFormWrapper";
 import EditBookFormWrapper from "../components/EditBookFormWrapper";
 
 // functional / stateless component

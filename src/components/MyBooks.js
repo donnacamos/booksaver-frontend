@@ -7,13 +7,13 @@ import { Link } from "react-router-dom";
 const MyBooks = (props) => {
   const bookCards =
     props.books.length > 0 ? (
-      props.books.map((l) => (
-        <Link to={`/books/${l.id}`} key={l.id}>
+      props.books.map((b) => (
+        <Link to={`/books/${b.id}`} key={b.id}>
           <button
             class="ui blue huge button"
             style={{ display: "block", margin: "1em" }}
           >
-            {l.title}
+            {b.title}
           </button>
         </Link>
       ))
@@ -24,7 +24,7 @@ const MyBooks = (props) => {
       </p>
     );
 
-  return listCards;
+  return bookCards;
 };
 
 const mapStateToProps = (state) => {

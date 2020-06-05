@@ -18,7 +18,7 @@ const BookForm = ({
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    updateListForm(name, value);
+    updateBookForm(name, value);
   };
 
   return (

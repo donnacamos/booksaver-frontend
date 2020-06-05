@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router } from "react-router";
+import { Router } from "react-router";
 // import "bootstrap/dist/css/bootstrap.css";
 // import "./index.css";
 

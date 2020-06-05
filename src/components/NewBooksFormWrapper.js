@@ -3,13 +3,13 @@ import React from "react";
 import { connect } from "react-redux";
 
 // Import from Files
-import { createList } from "../actions/myLists";
+import { createBook } from "../actions/myBooks";
 import BookForm from "./BookForm";
 
 // functional / stateless component
-const NewBookFormWrapper = ({ history, createList }) => {
+const NewBooksFormWrapper = ({ history, createBook }) => {
   const handleSubmit = (formData, userId) => {
-    createList(
+    createBook(
       {
         ...formData,
         userId,
@@ -21,4 +21,4 @@ const NewBookFormWrapper = ({ history, createList }) => {
   return <BookForm history={history} handleSubmit={handleSubmit} />;
 };
 
-export default connect(null, { createList })(NewBookFormWrapper);
+export default connect(null, { createBook })(NewBooksFormWrapper);
