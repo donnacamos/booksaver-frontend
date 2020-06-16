@@ -48,7 +48,7 @@ export const signup = (credentials, history) => {
 
 export const login = (credentials, history) => {
   return (dispatch) => {
-    return fetch("http://localhost:3000/api/v1/login", {
+    return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
       method: "POST",
       headers: {
@@ -75,7 +75,7 @@ export const logout = (event) => {
   return (dispatch) => {
     dispatch(clearCurrentUser());
     dispatch(clearBooks());
-    return fetch("http://localhost:3000/api/v1/logout", {
+    return fetch("http://localhost:3001/api/v1/logout", {
       credentials: "include",
       method: "DELETE",
     });
@@ -84,7 +84,7 @@ export const logout = (event) => {
 
 export const getCurrentUser = () => {
   return (dispatch) => {
-    return fetch("http://localhost:3000/api/v1/get_current_user", {
+    return fetch("http://localhost:3001/api/v1/get_current_user", {
       credentials: "include",
       method: "GET",
       headers: {

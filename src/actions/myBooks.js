@@ -39,7 +39,7 @@ export const updateBookSuccess = (book) => {
 //async actions
 export const getMyBooks = () => {
   return (dispatch) => {
-    return fetch("http://localhost:3000/api/v1/books", {
+    return fetch("http://localhost:3001/api/v1/books", {
       credentials: "include",
       method: "GET",
       headers: {
@@ -66,7 +66,7 @@ export const createBook = (bookData, history) => {
       description: bookData.description,
       user_id: bookData.userId,
     };
-    return fetch("http://localhost:3000/api/v1/books", {
+    return fetch("http://localhost:3001/api/v1/books", {
       credentials: "include",
       method: "POST",
       headers: {
@@ -95,7 +95,7 @@ export const updateBook = (bookData, history) => {
       author: bookData.author,
       description: bookData.description,
     };
-    return fetch(`http://localhost:3000/api/v1/books/${bookData.bookId}`, {
+    return fetch(`http://localhost:3001/api/v1/books/${bookData.bookId}`, {
       credentials: "include",
       method: "PATCH",
       headers: {
@@ -118,7 +118,7 @@ export const updateBook = (bookData, history) => {
 
 export const deleteBook = (bookId, history) => {
   return (dispatch) => {
-    return fetch(`http://localhost:3000/api/v1/books/${bookId}`, {
+    return fetch(`http://localhost:3001/api/v1/books/${bookId}`, {
       credentials: "include",
       method: "DELETE",
       headers: {
