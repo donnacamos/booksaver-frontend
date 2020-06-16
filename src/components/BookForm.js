@@ -42,7 +42,7 @@ const BookForm = ({
         <br />
         <br />
 
-        <label class="ui label">Author</label>
+        <label className="ui label">Author</label>
         <input
           type="text"
           name="author"
@@ -52,7 +52,7 @@ const BookForm = ({
         <br />
         <br />
 
-        <label class="ui label">Description</label>
+        <label className="ui label">Description</label>
         <textarea
           type="text"
           name="description"

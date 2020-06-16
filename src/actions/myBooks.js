@@ -116,7 +116,7 @@ export const updateBook = (bookData, history) => {
   };
 };
 
-export const deleteList = (bookId, history) => {
+export const deleteBook = (bookId, history) => {
   return (dispatch) => {
     return fetch(`http://localhost:3000/api/v1/books/${bookId}`, {
       credentials: "include",

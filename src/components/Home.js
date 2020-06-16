@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="Home">
-    
-
+    <div class="Home">
       <h3>Welcome to Book Haven</h3>
       <p>
         save all your favorite books and find new books from other book lovers
