@@ -1,25 +1,17 @@
-// React + Dependencies
 import React from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-
-// Import from Files
 import { logout } from "../actions/currentUser";
+import { Icon } from "semantic-ui-react";
 
-// functional / stateless component
-const Logout = ({ logout, history }) => {
+const Logout = ({ logout }) => {
   return (
-    <form
-      class="item"
-      onSubmit={(event) => {
-        event.preventDefault();
-        logout();
-        history.push("/");
-      }}
-    >
-      <input class="ui button" type="submit" value="Log Out" />
+    <form onSubmit={logout}>
+      <button className="button button-logout" type="submit" value="Log Out">
+        <Icon name="sign out" />
+        Log out
+      </button>
     </form>
   );
 };
 
-export default withRouter(connect(null, { logout })(Logout));
+export default connect(null, { logout })(Logout);

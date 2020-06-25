@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 // Import from Files
 import { updateBook, deleteBook } from "../actions/myBooks";
-import { setFormDataForEdit, resetBookForm } from "../actions/bookForm";
+import { setFormDataForEdit, resetBookForm } from "../actions/books";
 import BookForm from "./BookForm";
 
 // Class Component because we need to use ComponentDidMount to populate our form input

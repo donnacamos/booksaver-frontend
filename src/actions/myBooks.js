@@ -1,5 +1,5 @@
 // Import from Files
-import { resetBookForm } from "./bookForm";
+import { resetBookForm } from "./books";
 
 //synchronous actions
 export const setMyBooks = (books) => {

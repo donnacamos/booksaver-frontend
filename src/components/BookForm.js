@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 // Import from Files
-import { updateBookForm } from "../actions/bookForm";
+import { updateBookForm } from "../actions/books";
 
 // functional / stateless component
 const BookForm = ({

@@ -1,14 +1,11 @@
-// React + Dependencies
 import React from "react";
 import { connect } from "react-redux";
+import { updateSignupForm } from "../actions/signupForm.js";
+import { signup } from "../actions/currentUser.js";
+import { Divider, Icon } from "semantic-ui-react";
 
-// Import from Files
-import { updateSignupForm } from "../actions/signupForm";
-import { signup } from "../actions/currentUser";
-
-// functional / stateless component
-const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
-  const handleInputChange = (event) => {
+const Signup = ({ signupFormData, updateSignupForm, signup }) => {
+  const handleUserInfoInputChange = (event) => {
     const { name, value } = event.target;
     const updatedFormInfo = {
       ...signupFormData,
@@ -19,47 +16,53 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    signup(signupFormData, history);
+
+    signup(signupFormData);
   };
 
-  // Signup Form
   return (
-    <form class="ui form" onSubmit={handleSubmit}>
-      <h2>Sign Up</h2>
-      <div class="equal width fields">
-        <input
-          placeholder="username"
-          value={signupFormData.name}
-          type="text"
-          name="username"
-          onChange={handleInputChange}
-        />
-        <input
-          placeholder="email"
-          value={signupFormData.email}
-          type="text"
-          name="email"
-          onChange={handleInputChange}
-        />
-        <input
-          placeholder="password"
-          value={signupFormData.password}
-          type="password"
-          name="password"
-          onChange={handleInputChange}
-        />
-      </div>
-      <input class="ui button" value="Sign Up" type="submit" />
-      <p>
-        Note: If you're testing the app and don't want to create a login, use
-        the sample email and password provided on the login page.{" "}
-      </p>
-    </form>
+    <div>
+      <Divider hidden />
+
+      <form onSubmit={handleSubmit}>
+        <div className="ui input">
+          <input
+            placeholder="username"
+            value={signupFormData.username}
+            name="username"
+            type="text"
+            onChange={handleUserInfoInputChange}
+          />
+          <input
+            placeholder="password"
+            value={signupFormData.password}
+            name="password"
+            type="text"
+            onChange={handleUserInfoInputChange}
+          />
+          <input
+            placeholder="email"
+            value={signupFormData.email}
+            name="email"
+            type="text"
+            onChange={handleUserInfoInputChange}
+          />{" "}
+          <br />
+          <br />
+          <button
+            className="button button-signup"
+            type="submit"
+            value="Sign Up"
+          >
+            {" "}
+            <Icon name="user plus" /> Sign up
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 
-// Reading states from Redux store
-// we can now use these as props
 const mapStateToProps = (state) => {
   return {
     signupFormData: state.signupForm,
