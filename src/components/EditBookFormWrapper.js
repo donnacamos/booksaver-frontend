@@ -4,13 +4,13 @@ import { connect } from "react-redux";
 
 // Import from Files
 import { updateBook, deleteBook } from "../actions/myBooks";
-import { setFormDataForEdit, resetBookForm } from "../actions/books";
+import { setFormDataForEdit, resetBookForm } from "../actions/bookForm";
 import BookForm from "./BookForm";
 
 // Class Component because we need to use ComponentDidMount to populate our form input
 class EditBookFormWrapper extends React.Component {
   componentDidMount() {
-    this.props.book && this.props.setFormDataForEdit(this.props.book);
+    this.props.books && this.props.setFormDataForEdit(this.props.book);
   }
 
   //This will populate the Update Form if accessed from URL

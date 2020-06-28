@@ -7,7 +7,7 @@ import MyBooks from "../components/MyBooks";
 // functional / stateless component / container
 const MainContainer = () => {
   return (
-    <div class="MainContainer">
+    <div className="MainContainer">
       <MyBooks />
     </div>
   );

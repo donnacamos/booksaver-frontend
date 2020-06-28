@@ -7,7 +7,7 @@ import { createBook } from "../actions/myBooks";
 import BookForm from "./BookForm";
 
 // functional / stateless component
-const NewBooksFormWrapper = ({ history, createBook }) => {
+const NewBookFormWrapper = ({ history, createBook }) => {
   const handleSubmit = (formData, userId) => {
     createBook(
       {
@@ -18,7 +18,7 @@ const NewBooksFormWrapper = ({ history, createBook }) => {
     );
   };
 
-  return <BookForm history={history} handleSubmit={handleSubmit} />;
+  return <ListForm history={history} handleSubmit={handleSubmit} />;
 };
 
-export default connect(null, { createBook })(NewBooksFormWrapper);
+export default connect(null, { createBook })(NewBookFormWrapper);

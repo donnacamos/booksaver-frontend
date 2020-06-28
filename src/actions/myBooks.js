@@ -1,45 +1,45 @@
 // Import from Files
-import { resetBookForm } from "./books";
+import { resetListForm } from "./listForm";
 
 //synchronous actions
-export const setMyBooks = (books) => {
+export const setMyLists = (lists) => {
   return {
-    type: "SET_MY_BOOKS",
-    books,
+    type: "SET_MY_LISTS",
+    lists,
   };
 };
 
-export const clearBooks = () => {
+export const clearLists = () => {
   return {
-    type: "CLEAR_BOOKS",
+    type: "CLEAR_LISTS",
   };
 };
 
-export const addBook = (book) => {
+export const addList = (list) => {
   return {
-    type: "ADD_BOOK",
-    book,
+    type: "ADD_LIST",
+    list,
   };
 };
 
-export const deleteBookSuccess = (bookId) => {
+export const deleteListSuccess = (listId) => {
   return {
-    type: "DELETE_BOOK_SUCCESS",
-    bookId,
+    type: "DELETE_LIST_SUCCESS",
+    listId,
   };
 };
 
-export const updateBookSuccess = (book) => {
+export const updateListSuccess = (list) => {
   return {
-    type: "UPDATE_BOOK_SUCCESS",
-    book,
+    type: "UPDATE_LIST_SUCCESS",
+    list,
   };
 };
 
 //async actions
-export const getMyBooks = () => {
+export const getMyLists = () => {
   return (dispatch) => {
-    return fetch("http://localhost:3001/api/v1/books", {
+    return fetch("http://localhost:3000/api/v1/lists", {
       credentials: "include",
       method: "GET",
       headers: {
@@ -51,74 +51,72 @@ export const getMyBooks = () => {
         if (response.error) {
           alert(response.error);
         } else {
-          dispatch(setMyBooks(response));
+          dispatch(setMyLists(response));
         }
       })
       .catch(console.log);
   };
 };
 
-export const createBook = (bookData, history) => {
+export const createList = (listData, history) => {
   return (dispatch) => {
-    const sendableBookData = {
-      title: bookData.title,
-      author: bookData.author,
-      description: bookData.description,
-      user_id: bookData.userId,
+    const sendableListData = {
+      name: listData.name,
+      end_time: listData.endTime,
+      user_id: listData.userId,
     };
-    return fetch("http://localhost:3001/api/v1/books", {
+    return fetch("http://localhost:3000/api/v1/lists", {
       credentials: "include",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(sendableBookData),
+      body: JSON.stringify(sendableListData),
     })
       .then((r) => r.json())
       .then((resp) => {
         if (resp.error) {
           alert(resp.error);
         } else {
-          dispatch(addBook(resp));
-          dispatch(resetBookForm());
-          history.push(`/books/${resp.id}`);
+          dispatch(addList(resp));
+          dispatch(resetListForm());
+          history.push(`/lists/${resp.id}`);
         }
       })
       .catch(console.log);
   };
 };
 
-export const updateBook = (bookData, history) => {
+export const updateList = (listData, history) => {
   return (dispatch) => {
-    const sendableBookData = {
-      title: bookData.title,
-      author: bookData.author,
-      description: bookData.description,
+    const sendableListData = {
+      name: listData.name,
+      end_time: listData.endTime,
     };
-    return fetch(`http://localhost:3001/api/v1/books/${bookData.bookId}`, {
+    return fetch(`http://localhost:3000/api/v1/lists/${listData.listId}`, {
       credentials: "include",
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(sendableBookData),
+      body: JSON.stringify(sendableListData),
     })
       .then((r) => r.json())
       .then((resp) => {
         if (resp.error) {
           alert(resp.error);
         } else {
-          dispatch(updateBookSuccess(resp));
-          history.push(`/books/${resp.id}`);
+          dispatch(updateListSuccess(resp));
+          history.push(`/lists/${resp.id}`);
         }
       })
       .catch(console.log);
   };
 };
 
-export const deleteBook = (bookId, history) => {
+export const deleteList = (listId, history) => {
   return (dispatch) => {
-    return fetch(`http://localhost:3001/api/v1/books/${bookId}`, {
+    return fetch(`http://localhost:3000/api/v1/lists/${listId}`, {
       credentials: "include",
       method: "DELETE",
       headers: {
@@ -130,8 +128,8 @@ export const deleteBook = (bookId, history) => {
         if (resp.error) {
           alert(resp.error);
         } else {
-          dispatch(deleteBookSuccess(bookId));
-          history.push(`/books`);
+          dispatch(deleteListSuccess(listId));
+          history.push(`/lists`);
         }
       })
       .catch(console.log);

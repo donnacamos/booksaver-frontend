@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 // Import from Files
-import { updateBookForm } from "../actions/books";
+import { updateBookForm } from "../actions/bookForm";
 
 // functional / stateless component
 const BookForm = ({
@@ -30,7 +30,7 @@ const BookForm = ({
           handleSubmit(formData, userId);
         }}
       >
-        <h2>{editMode ? "Edit Your Book" : "Create a Book"}</h2>
+        <h2>{editMode ? "Edit Your Book" : "Add a Book"}</h2>
         <label class="ui label">Title</label>
         <input
           type="text"
@@ -42,7 +42,7 @@ const BookForm = ({
         <br />
         <br />
 
-        <label className="ui label">Author</label>
+        <label class="ui label">Author</label>
         <input
           type="text"
           name="author"
@@ -52,7 +52,7 @@ const BookForm = ({
         <br />
         <br />
 
-        <label className="ui label">Description</label>
+        <label class="ui label">Description</label>
         <textarea
           type="text"
           name="description"
@@ -65,7 +65,7 @@ const BookForm = ({
         <input
           class="ui button"
           type="submit"
-          value={editMode ? "Edit Book" : "Create Book"}
+          value={editMode ? "Edit Book" : "Add Book"}
         />
       </form>
     </div>
@@ -75,7 +75,7 @@ const BookForm = ({
 const mapStateToProps = (state) => {
   const userId = state.currentUser ? state.currentUser.id : "";
   return {
-    formData: state.bookForm,
+    formData: state.BookForm,
     userId,
   };
 };
