@@ -18,7 +18,7 @@ const NewBookFormWrapper = ({ history, createBook }) => {
     );
   };
 
-  return <ListForm history={history} handleSubmit={handleSubmit} />;
+  return <BookForm history={history} handleSubmit={handleSubmit} />;
 };
 
 export default connect(null, { createBook })(NewBookFormWrapper);

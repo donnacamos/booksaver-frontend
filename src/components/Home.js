@@ -23,9 +23,4 @@ const Home = () => (
 
 export default Home;
 
-{
-  /* <img
-        src="https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-        alt="Books"
-      /> */
-}
+

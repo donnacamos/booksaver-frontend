@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const MyBooks = (props) => {
   const bookCards =
     props.books.length > 0 ? (
-      props.books.map((l) => (
+      props.books.map((b) => (
         <Link to={`/books/${b.id}`} key={b.id}>
           <button
             class="ui blue huge button"

@@ -16,7 +16,7 @@ const LoggedIn = ({ books, loggedIn }) => {
     <React.Fragment>
       <NavBar />
       <Switch>
-        <Route exact path="/books" component={MyBook} />
+        <Route exact path="/books" component={MyBooks} />
         <Route exact path="/books/new" component={NewBookFormWrapper} />
         <Route
           exact

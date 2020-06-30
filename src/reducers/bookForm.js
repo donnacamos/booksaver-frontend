@@ -1,20 +1,21 @@
 const initialState = {
-  name: "",
-  endTime: ""
-}
+  title: "",
+  author: "",
+  description: "",
+};
 
-export default (state=initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
-    case "UPDATE_LIST_FORM":
+    case "UPDATE_BOOK_FORM":
       return {
         ...state,
-        [action.formData.name]: action.formData.value
-      }
-    case "RESET_NEW_LIST_FORM":
-      return initialState
+        [action.formData.name]: action.formData.value,
+      };
+    case "RESET_NEW_BOOK_FORM":
+      return initialState;
     case "SET_FORM_DATA_FOR_EDIT":
-      return action.listFormData
+      return action.bookFormData;
     default:
-      return state
+      return state;
   }
-}
+};

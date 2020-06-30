@@ -1,7 +1,7 @@
 // Import from Files
 import { resetSignupForm } from "./signupForm.js";
 import { resetLoginForm } from "./loginForm.js";
-import { getMyLists, clearLists } from "./myLists.js";
+import { getMyBooks, clearBooks } from "./myBooks.js";
 
 // synchronous action creators
 export const setCurrentUser = (user) => {
@@ -37,9 +37,9 @@ export const signup = (credentials, history) => {
           alert(response.error);
         } else {
           dispatch(setCurrentUser(response));
-          dispatch(getMyLists());
+          dispatch(getMyBooks());
           dispatch(resetSignupForm());
-          history.push("/lists");
+          history.push("/books");
         }
       })
       .catch(console.log);
@@ -62,9 +62,9 @@ export const login = (credentials, history) => {
           alert(response.error);
         } else {
           dispatch(setCurrentUser(response));
-          dispatch(getMyLists());
+          dispatch(getMyBooks());
           dispatch(resetLoginForm());
-          history.push("/lists");
+          history.push("/books");
         }
       })
       .catch(console.log);
@@ -74,7 +74,7 @@ export const login = (credentials, history) => {
 export const logout = (event) => {
   return (dispatch) => {
     dispatch(clearCurrentUser());
-    dispatch(clearLists());
+    dispatch(clearBooks());
     return fetch("http://localhost:3000/api/v1/logout", {
       credentials: "include",
       method: "DELETE",
@@ -97,7 +97,7 @@ export const getCurrentUser = () => {
           alert(response.error);
         } else {
           dispatch(setCurrentUser(response));
-          dispatch(getMyLists());
+          dispatch(getMyBooks());
         }
       })
       .catch(console.log);
