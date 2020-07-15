@@ -67,4 +67,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-Book Have Backend: https://github.com/donnacamos/booksaver-api
+Book Haven Backend: https://github.com/donnacamos/booksaver-api
