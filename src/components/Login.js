@@ -33,7 +33,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
         name="email"
         onChange={handleInputChange}
       />
-      <div class="ui pointing label">Sample email: thor@asgard.net</div>
+      <div class="ui pointing label">Sample email: frodobaggins@bagend.com</div>
       <br />
       <br />
       <input
@@ -43,7 +43,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
         name="password"
         onChange={handleInputChange}
       />
-      <div class="ui pointing label">Sample password: 1234</div>
+      <div class="ui pointing label">Sample password: OneRing2RuleThemAll</div>
       <br />
       <br />
 
