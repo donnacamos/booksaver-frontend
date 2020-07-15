@@ -75,7 +75,7 @@ const BookForm = ({
 const mapStateToProps = (state) => {
   const userId = state.currentUser ? state.currentUser.id : "";
   return {
-    formData: state.BookForm,
+    formData: state.bookForm,
     userId,
   };
 };
