@@ -5,10 +5,11 @@ import { Route, Switch } from "react-router-dom";
 
 // Import from Files
 import NavBar from "../components/NavBar";
-import MyBooks from "../components/MyBooks";
+// import MyBooks from "../components/MyBooks";
 import BookCard from "../components/BookCard";
 import NewBookFormWrapper from "../components/NewBookFormWrapper";
 import EditBookFormWrapper from "../components/EditBookFormWrapper";
+import MainContainer from "./MainContainer";
 
 // functional / stateless component
 const LoggedIn = ({ books, loggedIn }) => {
@@ -16,7 +17,7 @@ const LoggedIn = ({ books, loggedIn }) => {
     <React.Fragment>
       <NavBar />
       <Switch>
-        <Route exact path="/books" component={MyBooks} />
+        <Route exact path="/books" component={MainContainer} />
         <Route exact path="/books/new" component={NewBookFormWrapper} />
         <Route
           exact

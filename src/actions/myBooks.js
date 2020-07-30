@@ -59,6 +59,7 @@ export const getMyBooks = () => {
 };
 
 export const createBook = (bookData, history) => {
+  console.log('C');
   return (dispatch) => {
     const sendableBookData = {
       title: bookData.title,
@@ -79,6 +80,7 @@ export const createBook = (bookData, history) => {
         if (resp.error) {
           alert(resp.error);
         } else {
+          console.log("D")
           dispatch(addBook(resp));
           dispatch(resetBookForm());
           history.push(`/books/${resp.id}`);
@@ -86,6 +88,7 @@ export const createBook = (bookData, history) => {
       })
       .catch(console.log);
   };
+  console.log("E");
 };
 
 export const updateBook = (bookData, history) => {

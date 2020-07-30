@@ -10,17 +10,17 @@ import Logout from "./Logout";
 const NavBar = ({ currentUser, loggedIn }) => {
   return (
     <div className="NavBar">
-      <div class="ui secondary menu">
-        <NavLink to="/books" class="item">
-          <i class="home big icon"></i>
+      <div className="ui secondary menu">
+        <NavLink to="/books" className="item">
+          <button>Home Page</button>
         </NavLink>
-        <NavLink to="/books/new" class="item">
-          <button class="ui positive button">Add a New Book</button>
+        <NavLink to="/books/new" className="item">
+          <button className="ui positive button">Add a New Book</button>
         </NavLink>
-        <div class="right menu">
+        <div className="right menu">
           {loggedIn ? (
             <>
-              <span class="item" id="loggedin">
+              <span className="item" id="loggedin">
                 Logged in as {currentUser.username}
               </span>
               <Logout />

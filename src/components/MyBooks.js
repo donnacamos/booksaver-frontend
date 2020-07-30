@@ -2,6 +2,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+// import { render } from "@testing-library/react";
+
+import Counter from "./Counter";
 
 // functional / stateless component
 const MyBooks = (props) => {
@@ -15,6 +18,7 @@ const MyBooks = (props) => {
           >
             {b.title}
           </button>
+          <Counter /> 
         </Link>
       ))
     ) : (

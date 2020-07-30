@@ -7,6 +7,7 @@ import { withRouter } from "react-router-dom";
 import { getCurrentUser } from "./actions/currentUser";
 import LoggedOut from "./containers/LoggedOut";
 import LoggedIn from "./containers/LoggedIn";
+import "./App.css";
 
 class App extends React.Component {
   componentDidMount() {

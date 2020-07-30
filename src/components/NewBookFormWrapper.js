@@ -9,6 +9,7 @@ import BookForm from "./BookForm";
 // functional / stateless component
 const NewBookFormWrapper = ({ history, createBook }) => {
   const handleSubmit = (formData, userId) => {
+    console.log('A');
     createBook(
       {
         ...formData,
@@ -16,6 +17,7 @@ const NewBookFormWrapper = ({ history, createBook }) => {
       },
       history
     );
+    console.log('B');
   };
 
   return <BookForm history={history} handleSubmit={handleSubmit} />;
