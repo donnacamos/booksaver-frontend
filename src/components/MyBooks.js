@@ -11,6 +11,7 @@ const MyBooks = (props) => {
   const bookCards =
     props.books.length > 0 ? (
       props.books.map((b) => (
+        <div>
         <Link to={`/books/${b.id}`} key={b.id}>
           <button
             class="ui blue huge button"
@@ -18,8 +19,10 @@ const MyBooks = (props) => {
           >
             {b.title}
           </button>
-          <Counter /> 
+      
         </Link>
+        <Counter />
+        </div>
       ))
     ) : (
       <p>
